@@ -118,12 +118,12 @@ void Window::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    increment1Button->setBounds (150, 200, 50, 50);
+    increment1Button->setBounds (150, 150, 150, 150);
     decrementButton->setBounds (0, 200, 150, 50);
     numberEditor->setBounds (proportionOfWidth (0.3467f), 88, 100, 24);
-    zeroOutButton->setBounds (0, 250, 300, 50);
-    increment5Button->setBounds (200, 200, 50, 50);
-    increment10Button->setBounds (250, 200, 50, 50);
+    zeroOutButton->setBounds (0, 250, 150, 50);
+    increment5Button->setBounds (0, 150, 75, 50);
+    increment10Button->setBounds (75, 150, 75, 50);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -207,7 +207,7 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="300" initialHeight="300">
   <BACKGROUND backgroundColour="ff3b3434"/>
   <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
-              virtualName="" explicitFocusOrder="0" pos="150 200 50 50" buttonText="+1"
+              virtualName="" explicitFocusOrder="0" pos="150 150 150 150" buttonText="+1"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
               virtualName="" explicitFocusOrder="0" pos="0 200 150 50" buttonText="Decrement"
@@ -217,13 +217,13 @@ BEGIN_JUCER_METADATA
               textcol="ff832f2f" bkgcol="ffffffff" initialText="" multiline="0"
               retKeyStartsLine="0" readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="0 250 300 50" buttonText="Zero"
+              virtualName="" explicitFocusOrder="0" pos="0 250 150 50" buttonText="Zero"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
-              virtualName="" explicitFocusOrder="0" pos="200 200 50 50" buttonText="+5"
+              virtualName="" explicitFocusOrder="0" pos="0 150 75 50" buttonText="+5"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment10Button" id="cb1330da132e9560" memberName="increment10Button"
-              virtualName="" explicitFocusOrder="0" pos="250 200 50 50" buttonText="+10"
+              virtualName="" explicitFocusOrder="0" pos="75 150 75 50" buttonText="+10"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
