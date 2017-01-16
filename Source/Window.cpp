@@ -37,11 +37,13 @@ Window::Window ()
     increment1Button->setButtonText (TRANS("+1"));
     increment1Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment1Button->addListener (this);
+    increment1Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
 
     addAndMakeVisible (decrementButton = new TextButton ("decrementButton"));
     decrementButton->setButtonText (TRANS("Decrement"));
     decrementButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     decrementButton->addListener (this);
+    decrementButton->setColour (TextButton::buttonColourId, Colours::yellow);
 
     addAndMakeVisible (numberEditor = new TextEditor ("numberEditor"));
     numberEditor->setMultiLine (false);
@@ -58,22 +60,25 @@ Window::Window ()
     zeroOutButton->setButtonText (TRANS("Zero"));
     zeroOutButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     zeroOutButton->addListener (this);
+    zeroOutButton->setColour (TextButton::buttonColourId, Colours::yellow);
 
     addAndMakeVisible (increment5Button = new TextButton ("increment5Button"));
     increment5Button->setButtonText (TRANS("+5"));
     increment5Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment5Button->addListener (this);
+    increment5Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
 
     addAndMakeVisible (increment10Button = new TextButton ("increment10Button"));
     increment10Button->setButtonText (TRANS("+10"));
     increment10Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment10Button->addListener (this);
+    increment10Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
 
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (300, 300);
+    setSize (300, 400);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -118,12 +123,12 @@ void Window::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    increment1Button->setBounds (150, 150, 150, 150);
-    decrementButton->setBounds (0, 200, 150, 50);
-    numberEditor->setBounds (proportionOfWidth (0.3467f), 88, 100, 24);
-    zeroOutButton->setBounds (0, 250, 150, 50);
-    increment5Button->setBounds (0, 150, 75, 50);
-    increment10Button->setBounds (75, 150, 75, 50);
+    increment1Button->setBounds (150, 250, 150, 150);
+    decrementButton->setBounds (0, 300, 150, 50);
+    numberEditor->setBounds (proportionOfWidth (0.5000f) - (72 / 2), 80, 72, 56);
+    zeroOutButton->setBounds (0, 350, 150, 50);
+    increment5Button->setBounds (0, 250, 75, 50);
+    increment10Button->setBounds (75, 250, 75, 50);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -204,27 +209,27 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="Window" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="300" initialHeight="300">
+                 fixedSize="1" initialWidth="300" initialHeight="400">
   <BACKGROUND backgroundColour="ff3b3434"/>
   <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
-              virtualName="" explicitFocusOrder="0" pos="150 150 150 150" buttonText="+1"
-              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="150 250 150 150" bgColOff="ff27be6b"
+              buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
-              virtualName="" explicitFocusOrder="0" pos="0 200 150 50" buttonText="Decrement"
-              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="0 300 150 50" bgColOff="ffffff00"
+              buttonText="Decrement" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberEditor" id="a92dfa8937177359" memberName="numberEditor"
-              virtualName="" explicitFocusOrder="0" pos="34.667% 88 100 24"
-              textcol="ff832f2f" bkgcol="ffffffff" initialText="" multiline="0"
-              retKeyStartsLine="0" readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
+              virtualName="" explicitFocusOrder="0" pos="50%c 80 72 56" textcol="ff832f2f"
+              bkgcol="ffffffff" initialText="" multiline="0" retKeyStartsLine="0"
+              readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="0 250 150 50" buttonText="Zero"
-              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="0 350 150 50" bgColOff="ffffff00"
+              buttonText="Zero" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
-              virtualName="" explicitFocusOrder="0" pos="0 150 75 50" buttonText="+5"
-              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="0 250 75 50" bgColOff="ff27be6b"
+              buttonText="+5" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment10Button" id="cb1330da132e9560" memberName="increment10Button"
-              virtualName="" explicitFocusOrder="0" pos="75 150 75 50" buttonText="+10"
-              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="75 250 75 50" bgColOff="ff27be6b"
+              buttonText="+10" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
