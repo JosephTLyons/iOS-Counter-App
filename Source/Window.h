@@ -61,8 +61,8 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TextButton> increment;
-    ScopedPointer<TextButton> decrement;
+    ScopedPointer<TextButton> incrementButton;
+    ScopedPointer<TextButton> decrementButton;
     ScopedPointer<TextEditor> numberEditor;
     ScopedPointer<TextButton> zeroOutButton;
 
