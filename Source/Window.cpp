@@ -77,9 +77,6 @@ Window::Window ()
 
 
     //[Constructor] You can add your own custom stuff here..
-
-    Counter counterObject;
-
     // make sure to display first value of 0
     numberEditor->setText(counterObject.getNumberHolderString());
 
@@ -139,9 +136,9 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == increment1Button)
     {
         //[UserButtonCode_increment1Button] -- add your button handler code here..
-        
+
         counterObject.incrementNumber(1);
-        
+
         //[/UserButtonCode_increment1Button]
     }
     else if (buttonThatWasClicked == decrementButton)
@@ -167,17 +164,17 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == increment5Button)
     {
         //[UserButtonCode_increment5Button] -- add your button handler code here..
-        
+
         counterObject.incrementNumber(5);
-        
+
         //[/UserButtonCode_increment5Button]
     }
     else if (buttonThatWasClicked == increment10Button)
     {
         //[UserButtonCode_increment10Button] -- add your button handler code here..
-        
+
         counterObject.incrementNumber(10);
-        
+
         //[/UserButtonCode_increment10Button]
     }
 

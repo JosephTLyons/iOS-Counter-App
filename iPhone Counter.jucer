@@ -8,6 +8,8 @@
       <FILE id="edR9bc" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="s474p7" name="Window.h" compile="0" resource="0" file="Source/Window.h"/>
       <FILE id="fQXDzb" name="Window.cpp" compile="1" resource="0" file="Source/Window.cpp"/>
+      <FILE id="uPgfez" name="Counter.hpp" compile="0" resource="0" file="Source/Counter.hpp"/>
+      <FILE id="nS5qUU" name="Counter.cpp" compile="1" resource="0" file="Source/Counter.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
