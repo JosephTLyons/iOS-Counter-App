@@ -23,7 +23,7 @@ public:
     
     void incrementNumber();
     void decrementNumber();
-    void resetNumber();
+    void resetNumberToZero();
     void setIntToStringValue();
     
     unsigned long int getIntNumber();

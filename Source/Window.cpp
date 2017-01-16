@@ -107,10 +107,10 @@ void Window::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    incrementButton->setBounds (184, 208, 104, 24);
-    decrementButton->setBounds (32, 208, 104, 24);
+    incrementButton->setBounds (150, 200, 150, 50);
+    decrementButton->setBounds (0, 200, 150, 50);
     numberEditor->setBounds (80, 88, 150, 24);
-    zeroOutButton->setBounds (104, 256, 104, 24);
+    zeroOutButton->setBounds (0, 250, 300, 50);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -122,40 +122,34 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
 
     if (buttonThatWasClicked == incrementButton)
     {
-        //[UserButtonCode_increment] -- add your button handler code here..
-
-        // increment number
+        //[UserButtonCode_incrementButton] -- add your button handler code here..
+        
         counterObject.incrementNumber();
-
-        //[/UserButtonCode_increment]
+        
+        //[/UserButtonCode_incrementButton]
     }
     else if (buttonThatWasClicked == decrementButton)
     {
-        //[UserButtonCode_decrement] -- add your button handler code here..
-
-        // only decrement until we reach zero
-        if (counterObject.getIntNumber() > 0)
-        {
-            // decrement number
-            counterObject.decrementNumber();
-        }
-
-        //[/UserButtonCode_decrement]
+        //[UserButtonCode_decrementButton] -- add your button handler code here..
+        
+        counterObject.decrementNumber();
+        
+        //[/UserButtonCode_decrementButton]
     }
     else if (buttonThatWasClicked == zeroOutButton)
     {
         //[UserButtonCode_zeroOutButton] -- add your button handler code here..
-        
-        counterObject.resetNumber();
-        
+
+        counterObject.resetNumberToZero();
+
         //[/UserButtonCode_zeroOutButton]
     }
 
     //[UserbuttonClicked_Post]
-    
+
     // Display updated number
     numberEditor->setText(counterObject.getNumberHolderString());
-    
+
     //[/UserbuttonClicked_Post]
 }
 
@@ -180,17 +174,17 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="300" initialHeight="300">
   <BACKGROUND backgroundColour="ff1b1515"/>
   <TEXTBUTTON name="incrementButton" id="bd0d25d3a4cfb640" memberName="incrementButton"
-              virtualName="" explicitFocusOrder="0" pos="184 208 104 24" buttonText="Increment"
+              virtualName="" explicitFocusOrder="0" pos="150 200 150 50" buttonText="Increment"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
-              virtualName="" explicitFocusOrder="0" pos="32 208 104 24" buttonText="Decrement"
+              virtualName="" explicitFocusOrder="0" pos="0 200 150 50" buttonText="Decrement"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberEditor" id="a92dfa8937177359" memberName="numberEditor"
               virtualName="" explicitFocusOrder="0" pos="80 88 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="104 256 104 24" buttonText="Zero"
+              virtualName="" explicitFocusOrder="0" pos="0 250 300 50" buttonText="Zero"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 

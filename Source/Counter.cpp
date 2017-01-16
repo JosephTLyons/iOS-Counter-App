@@ -27,7 +27,7 @@ void Counter::decrementNumber()
     setIntToStringValue();
 }
 
-void Counter::resetNumber()
+void Counter::resetNumberToZero()
 {
     counterNumber = 0;
     setIntToStringValue();
