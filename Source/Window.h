@@ -22,6 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Counter.hpp"
 //[/Headers]
 
 
@@ -34,7 +35,8 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Window  : public Component
+class Window  : public Component,
+                public ButtonListener
 {
 public:
     //==============================================================================
@@ -47,14 +49,22 @@ public:
 
     void paint (Graphics& g) override;
     void resized() override;
+    void buttonClicked (Button* buttonThatWasClicked) override;
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+
+    Counter counterObject;
+
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TextButton> increment;
+    ScopedPointer<TextButton> decrement;
+    ScopedPointer<TextEditor> numberEditor;
+    ScopedPointer<TextButton> zeroOutButton;
 
 
     //==============================================================================

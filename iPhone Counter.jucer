@@ -5,9 +5,9 @@
               jucerVersion="4.3.0">
   <MAINGROUP id="es1jIZ" name="iPhone Counter">
     <GROUP id="{355AFA8E-3F8D-6DC9-3030-0A52F8D7C918}" name="Source">
+      <FILE id="edR9bc" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="s474p7" name="Window.h" compile="0" resource="0" file="Source/Window.h"/>
       <FILE id="fQXDzb" name="Window.cpp" compile="1" resource="0" file="Source/Window.cpp"/>
-      <FILE id="edR9bc" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
