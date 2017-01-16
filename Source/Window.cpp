@@ -33,10 +33,10 @@ Window::Window ()
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (incrementButton = new TextButton ("incrementButton"));
-    incrementButton->setButtonText (TRANS("Increment"));
-    incrementButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
-    incrementButton->addListener (this);
+    addAndMakeVisible (increment1Button = new TextButton ("increment1Button"));
+    increment1Button->setButtonText (TRANS("+1"));
+    increment1Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
+    increment1Button->addListener (this);
 
     addAndMakeVisible (decrementButton = new TextButton ("decrementButton"));
     decrementButton->setButtonText (TRANS("Decrement"));
@@ -46,16 +46,28 @@ Window::Window ()
     addAndMakeVisible (numberEditor = new TextEditor ("numberEditor"));
     numberEditor->setMultiLine (false);
     numberEditor->setReturnKeyStartsNewLine (false);
-    numberEditor->setReadOnly (false);
+    numberEditor->setReadOnly (true);
     numberEditor->setScrollbarsShown (true);
-    numberEditor->setCaretVisible (true);
+    numberEditor->setCaretVisible (false);
     numberEditor->setPopupMenuEnabled (true);
+    numberEditor->setColour (TextEditor::textColourId, Colour (0xff832f2f));
+    numberEditor->setColour (TextEditor::backgroundColourId, Colours::white);
     numberEditor->setText (String());
 
     addAndMakeVisible (zeroOutButton = new TextButton ("zeroOutButton"));
     zeroOutButton->setButtonText (TRANS("Zero"));
     zeroOutButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     zeroOutButton->addListener (this);
+
+    addAndMakeVisible (increment5Button = new TextButton ("increment5Button"));
+    increment5Button->setButtonText (TRANS("+5"));
+    increment5Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
+    increment5Button->addListener (this);
+
+    addAndMakeVisible (increment10Button = new TextButton ("increment10Button"));
+    increment10Button->setButtonText (TRANS("+10"));
+    increment10Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
+    increment10Button->addListener (this);
 
 
     //[UserPreSize]
@@ -80,10 +92,12 @@ Window::~Window()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    incrementButton = nullptr;
+    increment1Button = nullptr;
     decrementButton = nullptr;
     numberEditor = nullptr;
     zeroOutButton = nullptr;
+    increment5Button = nullptr;
+    increment10Button = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -96,7 +110,7 @@ void Window::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff1b1515));
+    g.fillAll (Colour (0xff3b3434));
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -107,10 +121,12 @@ void Window::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    incrementButton->setBounds (150, 200, 150, 50);
+    increment1Button->setBounds (150, 200, 50, 50);
     decrementButton->setBounds (0, 200, 150, 50);
-    numberEditor->setBounds (80, 88, 150, 24);
+    numberEditor->setBounds (proportionOfWidth (0.3467f), 88, 100, 24);
     zeroOutButton->setBounds (0, 250, 300, 50);
+    increment5Button->setBounds (200, 200, 50, 50);
+    increment10Button->setBounds (250, 200, 50, 50);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -120,20 +136,24 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
 
-    if (buttonThatWasClicked == incrementButton)
+    if (buttonThatWasClicked == increment1Button)
     {
-        //[UserButtonCode_incrementButton] -- add your button handler code here..
+        //[UserButtonCode_increment1Button] -- add your button handler code here..
         
-        counterObject.incrementNumber();
+        counterObject.incrementNumber(1);
         
-        //[/UserButtonCode_incrementButton]
+        //[/UserButtonCode_increment1Button]
     }
     else if (buttonThatWasClicked == decrementButton)
     {
         //[UserButtonCode_decrementButton] -- add your button handler code here..
-        
-        counterObject.decrementNumber();
-        
+
+        // only decrement until we hit zero, then stop
+        if(counterObject.getIntNumber() > 0)
+        {
+            counterObject.decrementNumber();
+        }
+
         //[/UserButtonCode_decrementButton]
     }
     else if (buttonThatWasClicked == zeroOutButton)
@@ -143,6 +163,22 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
         counterObject.resetNumberToZero();
 
         //[/UserButtonCode_zeroOutButton]
+    }
+    else if (buttonThatWasClicked == increment5Button)
+    {
+        //[UserButtonCode_increment5Button] -- add your button handler code here..
+        
+        counterObject.incrementNumber(5);
+        
+        //[/UserButtonCode_increment5Button]
+    }
+    else if (buttonThatWasClicked == increment10Button)
+    {
+        //[UserButtonCode_increment10Button] -- add your button handler code here..
+        
+        counterObject.incrementNumber(10);
+        
+        //[/UserButtonCode_increment10Button]
     }
 
     //[UserbuttonClicked_Post]
@@ -172,19 +208,25 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="300" initialHeight="300">
-  <BACKGROUND backgroundColour="ff1b1515"/>
-  <TEXTBUTTON name="incrementButton" id="bd0d25d3a4cfb640" memberName="incrementButton"
-              virtualName="" explicitFocusOrder="0" pos="150 200 150 50" buttonText="Increment"
+  <BACKGROUND backgroundColour="ff3b3434"/>
+  <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
+              virtualName="" explicitFocusOrder="0" pos="150 200 50 50" buttonText="+1"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
               virtualName="" explicitFocusOrder="0" pos="0 200 150 50" buttonText="Decrement"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberEditor" id="a92dfa8937177359" memberName="numberEditor"
-              virtualName="" explicitFocusOrder="0" pos="80 88 150 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
+              virtualName="" explicitFocusOrder="0" pos="34.667% 88 100 24"
+              textcol="ff832f2f" bkgcol="ffffffff" initialText="" multiline="0"
+              retKeyStartsLine="0" readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
               virtualName="" explicitFocusOrder="0" pos="0 250 300 50" buttonText="Zero"
+              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
+              virtualName="" explicitFocusOrder="0" pos="200 200 50 50" buttonText="+5"
+              connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="increment10Button" id="cb1330da132e9560" memberName="increment10Button"
+              virtualName="" explicitFocusOrder="0" pos="250 200 50 50" buttonText="+10"
               connectedEdges="3" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 

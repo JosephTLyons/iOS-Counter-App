@@ -61,10 +61,12 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TextButton> incrementButton;
+    ScopedPointer<TextButton> increment1Button;
     ScopedPointer<TextButton> decrementButton;
     ScopedPointer<TextEditor> numberEditor;
     ScopedPointer<TextButton> zeroOutButton;
+    ScopedPointer<TextButton> increment5Button;
+    ScopedPointer<TextButton> increment10Button;
 
 
     //==============================================================================

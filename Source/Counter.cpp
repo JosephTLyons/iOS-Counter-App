@@ -15,9 +15,9 @@ Counter::Counter()
     setIntToStringValue();
 }
 
-void Counter::incrementNumber()
+void Counter::incrementNumber(const int &input)
 {
-    counterNumber++;
+    counterNumber += input;
     setIntToStringValue();
 }
 

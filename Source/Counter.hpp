@@ -21,7 +21,7 @@ public:
     
     Counter();
     
-    void incrementNumber();
+    void incrementNumber(const int &input);
     void decrementNumber();
     void resetNumberToZero();
     void setIntToStringValue();
