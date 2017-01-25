@@ -17,7 +17,7 @@ private:
     unsigned long int counterNumber;
     String numberHolderString;
     
-public:s
+public:
     Counter();
     
     void incrementNumber(const int &input);
