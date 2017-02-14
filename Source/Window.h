@@ -61,6 +61,7 @@ private:
 
     Counter counterObject;
     Font fontForDotEditor;
+    Font fontForNumberEditor;
 
     //[/UserVariables]
 
@@ -78,6 +79,7 @@ private:
     ScopedPointer<TextEditor> sixDigitEditor;
     ScopedPointer<TextButton> increment100Button;
     ScopedPointer<TextButton> increment1000Button;
+    ScopedPointer<TextEditor> numberFormatEditor;
 
 
     //==============================================================================

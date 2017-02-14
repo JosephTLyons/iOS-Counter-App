@@ -53,7 +53,7 @@ Window::Window ()
     oneDigitEditor->setCaretVisible (false);
     oneDigitEditor->setPopupMenuEnabled (true);
     oneDigitEditor->setColour (TextEditor::textColourId, Colour (0xffe90808));
-    oneDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
+    oneDigitEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     oneDigitEditor->setText (String());
 
     addAndMakeVisible (zeroOutButton = new TextButton ("zeroOutButton"));
@@ -82,7 +82,7 @@ Window::Window ()
     twoDigitEditor->setCaretVisible (false);
     twoDigitEditor->setPopupMenuEnabled (true);
     twoDigitEditor->setColour (TextEditor::textColourId, Colour (0xffffdd5b));
-    twoDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
+    twoDigitEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     twoDigitEditor->setText (String());
 
     addAndMakeVisible (threeDigitEditor = new TextEditor ("threeDigitEditor"));
@@ -93,7 +93,7 @@ Window::Window ()
     threeDigitEditor->setCaretVisible (false);
     threeDigitEditor->setPopupMenuEnabled (true);
     threeDigitEditor->setColour (TextEditor::textColourId, Colour (0xffd4a6ff));
-    threeDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
+    threeDigitEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     threeDigitEditor->setText (String());
 
     addAndMakeVisible (fourDigitEditor = new TextEditor ("fourDigitEditor"));
@@ -104,7 +104,7 @@ Window::Window ()
     fourDigitEditor->setCaretVisible (false);
     fourDigitEditor->setPopupMenuEnabled (true);
     fourDigitEditor->setColour (TextEditor::textColourId, Colour (0xffff43d7));
-    fourDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
+    fourDigitEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     fourDigitEditor->setText (String());
 
     addAndMakeVisible (fiveDigitEditor = new TextEditor ("fiveDigitEditor"));
@@ -115,7 +115,7 @@ Window::Window ()
     fiveDigitEditor->setCaretVisible (false);
     fiveDigitEditor->setPopupMenuEnabled (true);
     fiveDigitEditor->setColour (TextEditor::textColourId, Colour (0xffa7ff4f));
-    fiveDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
+    fiveDigitEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     fiveDigitEditor->setText (String());
 
     addAndMakeVisible (sixDigitEditor = new TextEditor ("sixDigitEditor"));
@@ -126,7 +126,7 @@ Window::Window ()
     sixDigitEditor->setCaretVisible (false);
     sixDigitEditor->setPopupMenuEnabled (true);
     sixDigitEditor->setColour (TextEditor::textColourId, Colours::aqua);
-    sixDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
+    sixDigitEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     sixDigitEditor->setText (String());
 
     addAndMakeVisible (increment100Button = new TextButton ("increment100Button"));
@@ -141,6 +141,17 @@ Window::Window ()
     increment1000Button->addListener (this);
     increment1000Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
 
+    addAndMakeVisible (numberFormatEditor = new TextEditor ("numberFormatEditor"));
+    numberFormatEditor->setMultiLine (false);
+    numberFormatEditor->setReturnKeyStartsNewLine (false);
+    numberFormatEditor->setReadOnly (false);
+    numberFormatEditor->setScrollbarsShown (true);
+    numberFormatEditor->setCaretVisible (true);
+    numberFormatEditor->setPopupMenuEnabled (true);
+    numberFormatEditor->setColour (TextEditor::textColourId, Colours::white);
+    numberFormatEditor->setColour (TextEditor::backgroundColourId, Colours::black);
+    numberFormatEditor->setText (String());
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -150,8 +161,9 @@ Window::Window ()
 
     //[Constructor] You can add your own custom stuff here..
 
-    // Set up Font Object
+    // Set up Font Objects
     fontForDotEditor.setSizeAndStyle(50, bold, 1, 0);
+    fontForNumberEditor.setSizeAndStyle(12, normal, 1, 0);
 
     // Set dot textEditor font
     oneDigitEditor->setFont(fontForDotEditor);
@@ -161,15 +173,21 @@ Window::Window ()
     fiveDigitEditor->setFont(fontForDotEditor);
     sixDigitEditor->setFont(fontForDotEditor);
 
+    // Set number textEditor font
+    numberFormatEditor->setFont(fontForNumberEditor);
+
     // Set all increment buttons to register on down click and not up click
     increment1Button->setTriggeredOnMouseDown(true);
     increment5Button->setTriggeredOnMouseDown(true);
     increment10Button->setTriggeredOnMouseDown(true);
     increment100Button->setTriggeredOnMouseDown(true);
     increment1000Button->setTriggeredOnMouseDown(true);
-    
+
     decrementButton->setTriggeredOnMouseDown(true);
     zeroOutButton->setTriggeredOnMouseDown(true);
+
+    // Set Number Editor to total tap count (currently 0)
+    numberFormatEditor->setText((String) counterObject.getTotalTapCount());
 
     //[/Constructor]
 }
@@ -192,6 +210,7 @@ Window::~Window()
     sixDigitEditor = nullptr;
     increment100Button = nullptr;
     increment1000Button = nullptr;
+    numberFormatEditor = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -228,6 +247,7 @@ void Window::resized()
     sixDigitEditor->setBounds (0, 1, 160, 129);
     increment100Button->setBounds (0, 448, 70, 60);
     increment1000Button->setBounds (70, 448, 70, 60);
+    numberFormatEditor->setBounds (0, 364, 320, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -300,13 +320,16 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
 
     //[UserbuttonClicked_Post]
 
-    // Display updated number
+    // Display updated dot count
     oneDigitEditor->setText(counterObject.returnDigitsString(1));
     twoDigitEditor->setText(counterObject.returnDigitsString(2));
     threeDigitEditor->setText(counterObject.returnDigitsString(3));
     fourDigitEditor->setText(counterObject.returnDigitsString(4));
     fiveDigitEditor->setText(counterObject.returnDigitsString(5));
     sixDigitEditor->setText(counterObject.returnDigitsString(6));
+
+    // Display updated number
+    numberFormatEditor->setText((String) counterObject.getTotalTapCount());
 
     //[/UserbuttonClicked_Post]
 }
@@ -339,7 +362,7 @@ BEGIN_JUCER_METADATA
               buttonText="-1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="oneDigitEditor" id="a92dfa8937177359" memberName="oneDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="160 259 160 129" textcol="ffe90808"
-              bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
+              bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
               virtualName="" explicitFocusOrder="0" pos="70 508 70 60" bgColOff="ffffff00"
@@ -352,23 +375,23 @@ BEGIN_JUCER_METADATA
               buttonText="+10" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="twoDigitEditor" id="307ebba97abe27fc" memberName="twoDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="0 259 160 129" textcol="ffffdd5b"
-              bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
+              bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="threeDigitEditor" id="cc880f56d37202bd" memberName="threeDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="160 130 160 129" textcol="ffd4a6ff"
-              bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
+              bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="fourDigitEditor" id="2fe1eda1425062e0" memberName="fourDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="0 130 160 129" textcol="ffff43d7"
-              bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
+              bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="fiveDigitEditor" id="225501241d10fe7d" memberName="fiveDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="160 1 160 129" textcol="ffa7ff4f"
-              bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
+              bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="sixDigitEditor" id="4fc102723a1ac86" memberName="sixDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="0 1 160 129" textcol="ff00ffff"
-              bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
+              bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="increment100Button" id="6b79c890d1b60cf8" memberName="increment100Button"
               virtualName="" explicitFocusOrder="0" pos="0 448 70 60" bgColOff="ff27be6b"
@@ -376,6 +399,10 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="increment1000Button" id="68df2984869f2126" memberName="increment1000Button"
               virtualName="" explicitFocusOrder="0" pos="70 448 70 60" bgColOff="ff27be6b"
               buttonText="+1000" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+  <TEXTEDITOR name="numberFormatEditor" id="a227d58174688499" memberName="numberFormatEditor"
+              virtualName="" explicitFocusOrder="0" pos="0 364 320 24" textcol="ffffffff"
+              bkgcol="ff000000" initialText="" multiline="0" retKeyStartsLine="0"
+              readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
