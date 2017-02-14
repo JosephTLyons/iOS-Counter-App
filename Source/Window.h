@@ -64,10 +64,15 @@ private:
     //==============================================================================
     ScopedPointer<TextButton> increment1Button;
     ScopedPointer<TextButton> decrementButton;
-    ScopedPointer<TextEditor> numberEditor;
+    ScopedPointer<TextEditor> oneDigitEditor;
     ScopedPointer<TextButton> zeroOutButton;
     ScopedPointer<TextButton> increment5Button;
     ScopedPointer<TextButton> increment10Button;
+    ScopedPointer<TextEditor> twoDigitEditor;
+    ScopedPointer<TextEditor> threeDigitEditor;
+    ScopedPointer<TextEditor> fourDigitEditor;
+    ScopedPointer<TextEditor> fiveDigitEditor;
+    ScopedPointer<TextEditor> sixDigitEditor;
 
 
     //==============================================================================

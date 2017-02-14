@@ -14,7 +14,22 @@
 class Counter
 {
 private:
-    unsigned long int counterNumber;
+    unsigned long int totalTapCount;
+    
+    int oneDigit   = 0;
+    int twoDigit   = 0;
+    int threeDigit = 0;
+    int fourDigit  = 0;
+    int fiveDigit  = 0;
+    int sixDigit   = 0;
+    
+    String oneDots;
+    String twoDots;
+    String threeDots;
+    String fourDots;
+    String fiveDots;
+    String sixDots;
+    
     String numberHolderString;
     
 public:
@@ -23,11 +38,14 @@ public:
     void incrementNumber(const int &input);
     void decrementNumber();
     void resetNumberToZero();
-    void setIntToStringValue();
+    void calculateDots();
+    void clearAllString();
+    void fillAllStringsWithDots();
+    void fillOneStringWithDots(const int &dotCount, String &string);
+    
+    String returnDigitsString(const int &number);
     
     unsigned long int getIntNumber();
-    
-    String getNumberHolderString();
 };
 
 #endif /* Counter_hpp */

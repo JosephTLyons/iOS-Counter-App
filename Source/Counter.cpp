@@ -11,39 +11,115 @@
 
 Counter::Counter()
 {
-    counterNumber = 0;
-    setIntToStringValue();
+    totalTapCount = 0;
 }
 
 void Counter::incrementNumber(const int &input)
 {
-    counterNumber += input;
-    setIntToStringValue();
+    totalTapCount += input;
+    
+    calculateDots();
 }
 
 void Counter::decrementNumber()
 {
-    counterNumber--;
-    setIntToStringValue();
+    totalTapCount--;
+    
+    calculateDots();
 }
 
 void Counter::resetNumberToZero()
 {
-    counterNumber = 0;
-    setIntToStringValue();
+    totalTapCount = 0;
+    
+    calculateDots();
 }
 
-void Counter::setIntToStringValue()
+void Counter::calculateDots()
 {
-    numberHolderString = (String) counterNumber;
+    unsigned long int temporaryCounterNumber = totalTapCount;
+    
+    oneDigit   = temporaryCounterNumber % 10;
+    temporaryCounterNumber /= 10;
+    
+    twoDigit   = temporaryCounterNumber % 10;
+    temporaryCounterNumber /= 10;
+    
+    threeDigit = temporaryCounterNumber % 10;
+    temporaryCounterNumber /= 10;
+    
+    fourDigit  = temporaryCounterNumber % 10;
+    temporaryCounterNumber /= 10;
+    
+    fiveDigit  = temporaryCounterNumber % 10;
+    temporaryCounterNumber /= 10;
+    
+    sixDigit   = temporaryCounterNumber % 10;
+    temporaryCounterNumber /= 10;
+    
+    clearAllString();
+    fillAllStringsWithDots();
+}
+
+void Counter::clearAllString()
+{
+    oneDots.clear();
+    twoDots.clear();
+    threeDots.clear();
+    fourDots.clear();
+    fiveDots.clear();
+    sixDots.clear();
+}
+
+void Counter::fillAllStringsWithDots()
+{
+    fillOneStringWithDots(oneDigit, oneDots);
+    fillOneStringWithDots(twoDigit, twoDots);
+    fillOneStringWithDots(threeDigit, threeDots);
+    fillOneStringWithDots(fourDigit, fourDots);
+    fillOneStringWithDots(fiveDigit, fiveDots);
+    fillOneStringWithDots(sixDigit, sixDots);
+}
+
+void Counter::fillOneStringWithDots(const int &dotCount, String &string)
+{
+    for(int i = 0; i < dotCount; i++)
+    {
+        string += ". ";
+    }
+}
+
+String Counter::returnDigitsString(const int &number)
+{
+    switch (number)
+    {
+        case 1:
+            return oneDots;
+            break;
+         
+        case 2:
+            return twoDots;
+            break;
+            
+        case 3:
+            return threeDots;
+            break;
+            
+        case 4:
+            return fourDots;
+            break;
+            
+        case 5:
+            return fiveDots;
+            break;
+            
+        default:
+            return sixDots;
+            break;
+    }
 }
 
 unsigned long int Counter::getIntNumber()
 {
-    return counterNumber;
-}
-
-String Counter::getNumberHolderString()
-{
-    return numberHolderString;
+    return getIntNumber();
 }
