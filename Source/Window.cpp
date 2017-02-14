@@ -40,7 +40,7 @@ Window::Window ()
     increment1Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
 
     addAndMakeVisible (decrementButton = new TextButton ("decrementButton"));
-    decrementButton->setButtonText (TRANS("Decrement"));
+    decrementButton->setButtonText (TRANS("-1"));
     decrementButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     decrementButton->addListener (this);
     decrementButton->setColour (TextButton::buttonColourId, Colours::yellow);
@@ -129,6 +129,18 @@ Window::Window ()
     sixDigitEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
     sixDigitEditor->setText (String());
 
+    addAndMakeVisible (increment100Button = new TextButton ("increment100Button"));
+    increment100Button->setButtonText (TRANS("+100"));
+    increment100Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
+    increment100Button->addListener (this);
+    increment100Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+
+    addAndMakeVisible (increment1000Button = new TextButton ("increment1000Button"));
+    increment1000Button->setButtonText (TRANS("+1000"));
+    increment1000Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
+    increment1000Button->addListener (this);
+    increment1000Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -173,6 +185,8 @@ Window::~Window()
     fourDigitEditor = nullptr;
     fiveDigitEditor = nullptr;
     sixDigitEditor = nullptr;
+    increment100Button = nullptr;
+    increment1000Button = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -197,9 +211,9 @@ void Window::resized()
     //[/UserPreResize]
 
     increment1Button->setBounds (140, 388, 180, 180);
-    decrementButton->setBounds (0, 448, 140, 60);
+    decrementButton->setBounds (0, 508, 70, 60);
     oneDigitEditor->setBounds (160, 259, 160, 129);
-    zeroOutButton->setBounds (0, 508, 140, 60);
+    zeroOutButton->setBounds (70, 508, 70, 60);
     increment5Button->setBounds (0, 388, 70, 60);
     increment10Button->setBounds (70, 388, 70, 60);
     twoDigitEditor->setBounds (0, 259, 160, 129);
@@ -207,6 +221,8 @@ void Window::resized()
     fourDigitEditor->setBounds (0, 130, 160, 129);
     fiveDigitEditor->setBounds (160, 1, 160, 129);
     sixDigitEditor->setBounds (0, 1, 160, 129);
+    increment100Button->setBounds (0, 448, 70, 60);
+    increment1000Button->setBounds (70, 448, 70, 60);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -260,6 +276,22 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
 
         //[/UserButtonCode_increment10Button]
     }
+    else if (buttonThatWasClicked == increment100Button)
+    {
+        //[UserButtonCode_increment100Button] -- add your button handler code here..
+        
+        counterObject.incrementNumber(100);
+        
+        //[/UserButtonCode_increment100Button]
+    }
+    else if (buttonThatWasClicked == increment1000Button)
+    {
+        //[UserButtonCode_increment1000Button] -- add your button handler code here..
+        
+        counterObject.incrementNumber(1000);
+        
+        //[/UserButtonCode_increment1000Button]
+    }
 
     //[UserbuttonClicked_Post]
 
@@ -298,14 +330,14 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff27be6b"
               buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
-              virtualName="" explicitFocusOrder="0" pos="0 448 140 60" bgColOff="ffffff00"
-              buttonText="Decrement" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="0 508 70 60" bgColOff="ffffff00"
+              buttonText="-1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="oneDigitEditor" id="a92dfa8937177359" memberName="oneDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="160 259 160 129" textcol="ffe90808"
               bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="0 508 140 60" bgColOff="ffffff00"
+              virtualName="" explicitFocusOrder="0" pos="70 508 70 60" bgColOff="ffffff00"
               buttonText="Zero" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
               virtualName="" explicitFocusOrder="0" pos="0 388 70 60" bgColOff="ff27be6b"
@@ -333,6 +365,12 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="0 1 160 129" textcol="ff00ffff"
               bkgcol="ff292424" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
+  <TEXTBUTTON name="increment100Button" id="6b79c890d1b60cf8" memberName="increment100Button"
+              virtualName="" explicitFocusOrder="0" pos="0 448 70 60" bgColOff="ff27be6b"
+              buttonText="+100" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="increment1000Button" id="68df2984869f2126" memberName="increment1000Button"
+              virtualName="" explicitFocusOrder="0" pos="70 448 70 60" bgColOff="ff27be6b"
+              buttonText="+1000" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

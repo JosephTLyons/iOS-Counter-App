@@ -73,6 +73,8 @@ private:
     ScopedPointer<TextEditor> fourDigitEditor;
     ScopedPointer<TextEditor> fiveDigitEditor;
     ScopedPointer<TextEditor> sixDigitEditor;
+    ScopedPointer<TextButton> increment100Button;
+    ScopedPointer<TextButton> increment1000Button;
 
 
     //==============================================================================
