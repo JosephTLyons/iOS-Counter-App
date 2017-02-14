@@ -136,7 +136,7 @@ void Window::resized()
 
     increment1Button->setBounds (140, 388, 180, 180);
     decrementButton->setBounds (0, 448, 140, 60);
-    numberEditor->setBounds (0, 90, 320, 208);
+    numberEditor->setBounds (0, 125, 320, 138);
     zeroOutButton->setBounds (0, 508, 140, 60);
     increment5Button->setBounds (0, 388, 70, 60);
     increment10Button->setBounds (70, 388, 70, 60);
@@ -229,7 +229,7 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="0 448 140 60" bgColOff="ffffff00"
               buttonText="Decrement" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberEditor" id="a92dfa8937177359" memberName="numberEditor"
-              virtualName="" explicitFocusOrder="0" pos="0 90 320 208" textcol="ffffffff"
+              virtualName="" explicitFocusOrder="0" pos="0 125 320 138" textcol="ffffffff"
               bkgcol="ff292424" initialText="" multiline="0" retKeyStartsLine="0"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
