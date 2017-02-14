@@ -12,6 +12,13 @@
 Counter::Counter()
 {
     totalTapCount = 0;
+    
+    oneDigit   = 0;
+    twoDigit   = 0;
+    threeDigit = 0;
+    fourDigit  = 0;
+    fiveDigit  = 0;
+    sixDigit   = 0;
 }
 
 void Counter::incrementNumber(const int &input)

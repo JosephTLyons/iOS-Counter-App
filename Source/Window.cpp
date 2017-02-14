@@ -185,7 +185,7 @@ void Window::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff292424));
+    g.fillAll (Colours::black);
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -293,7 +293,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="320" initialHeight="568">
-  <BACKGROUND backgroundColour="ff292424"/>
+  <BACKGROUND backgroundColour="ff000000"/>
   <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
               virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff27be6b"
               buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>

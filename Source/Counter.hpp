@@ -16,12 +16,12 @@ class Counter
 private:
     unsigned long int totalTapCount;
     
-    int oneDigit   = 0;
-    int twoDigit   = 0;
-    int threeDigit = 0;
-    int fourDigit  = 0;
-    int fiveDigit  = 0;
-    int sixDigit   = 0;
+    int oneDigit;
+    int twoDigit;
+    int threeDigit;
+    int fourDigit;
+    int fiveDigit;
+    int sixDigit;
     
     String oneDots;
     String twoDots;
