@@ -229,7 +229,7 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_decrementButton] -- add your button handler code here..
 
         // only decrement until we hit zero, then stop
-        if(counterObject.getIntNumber() > 0)
+        if(counterObject.getTotalTapCount() > 0)
         {
             counterObject.decrementNumber();
         }

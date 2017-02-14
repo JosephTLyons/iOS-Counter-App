@@ -119,7 +119,7 @@ String Counter::returnDigitsString(const int &number)
     }
 }
 
-unsigned long int Counter::getIntNumber()
+unsigned long int Counter::getTotalTapCount()
 {
-    return getIntNumber();
+    return totalTapCount;
 }

@@ -45,7 +45,7 @@ public:
     
     String returnDigitsString(const int &number);
     
-    unsigned long int getIntNumber();
+    unsigned long int getTotalTapCount();
 };
 
 #endif /* Counter_hpp */
