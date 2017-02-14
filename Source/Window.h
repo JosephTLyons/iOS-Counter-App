@@ -51,6 +51,9 @@ public:
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
 
+    // Binary resources:
+    static const char* counterNotes_rtf;
+    static const int counterNotes_rtfSize;
 
 
 private:
