@@ -151,15 +151,15 @@ Window::Window ()
     //[Constructor] You can add your own custom stuff here..
 
     // Set up Font Object
-    fontForEditor.setSizeAndStyle(50, bold, 1, 0);
+    fontForDotEditor.setSizeAndStyle(50, bold, 1, 0);
 
-    // Set textEditor font
-    oneDigitEditor->setFont(fontForEditor);
-    twoDigitEditor->setFont(fontForEditor);
-    threeDigitEditor->setFont(fontForEditor);
-    fourDigitEditor->setFont(fontForEditor);
-    fiveDigitEditor->setFont(fontForEditor);
-    sixDigitEditor->setFont(fontForEditor);
+    // Set dot textEditor font
+    oneDigitEditor->setFont(fontForDotEditor);
+    twoDigitEditor->setFont(fontForDotEditor);
+    threeDigitEditor->setFont(fontForDotEditor);
+    fourDigitEditor->setFont(fontForDotEditor);
+    fiveDigitEditor->setFont(fontForDotEditor);
+    sixDigitEditor->setFont(fontForDotEditor);
 
     // Set all increment buttons to register on down click and not up click
     increment1Button->setTriggeredOnMouseDown(true);

@@ -60,7 +60,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 
     Counter counterObject;
-    Font fontForEditor;
+    Font fontForDotEditor;
 
     //[/UserVariables]
 
