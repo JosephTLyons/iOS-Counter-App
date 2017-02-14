@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="a3b2L3" name="iPhone Counter" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.iPhoneCounter" includeBinaryInAppConfig="1"
-              jucerVersion="4.3.0">
+              jucerVersion="4.3.1">
   <MAINGROUP id="es1jIZ" name="iPhone Counter">
     <GROUP id="{355AFA8E-3F8D-6DC9-3030-0A52F8D7C918}" name="Source">
       <FILE id="edR9bc" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
@@ -34,13 +34,13 @@
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="iPhone Counter"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="../../Libraries/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../Libraries/JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../Libraries/JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../Libraries/JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../Libraries/JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../Libraries/JUCE/modules"/>
-        <MODULEPATH id="juce_core" path="../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Libraries/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
   </EXPORTFORMATS>

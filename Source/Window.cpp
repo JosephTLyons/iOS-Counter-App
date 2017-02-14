@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.3.0
+  Created with Projucer version: 4.3.1
 
   ------------------------------------------------------------------------------
 
@@ -52,8 +52,8 @@ Window::Window ()
     numberEditor->setScrollbarsShown (true);
     numberEditor->setCaretVisible (false);
     numberEditor->setPopupMenuEnabled (true);
-    numberEditor->setColour (TextEditor::textColourId, Colour (0xff832f2f));
-    numberEditor->setColour (TextEditor::backgroundColourId, Colours::white);
+    numberEditor->setColour (TextEditor::textColourId, Colours::white);
+    numberEditor->setColour (TextEditor::backgroundColourId, Colour (0xff292424));
     numberEditor->setText (String());
 
     addAndMakeVisible (zeroOutButton = new TextButton ("zeroOutButton"));
@@ -78,13 +78,24 @@ Window::Window ()
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (300, 400);
+    setSize (320, 568);
 
 
     //[Constructor] You can add your own custom stuff here..
-    // make sure to display first value of 0
+
+    // Make sure to display first value of 0
     numberEditor->setText(counterObject.getNumberHolderString());
 
+    // Set up Font Object
+    fontForEditor.setSizeAndStyle(80, bold, 1, 0);
+
+    // Set editor font
+    numberEditor->setFont(fontForEditor);
+
+    // Set all increment buttons to register on down click and not up click
+    increment1Button->setTriggeredOnMouseDown(true);
+    increment5Button->setTriggeredOnMouseDown(true);
+    increment10Button->setTriggeredOnMouseDown(true);
 
     //[/Constructor]
 }
@@ -112,7 +123,7 @@ void Window::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff3b3434));
+    g.fillAll (Colour (0xff292424));
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -123,12 +134,12 @@ void Window::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    increment1Button->setBounds (150, 250, 150, 150);
-    decrementButton->setBounds (0, 300, 150, 50);
-    numberEditor->setBounds (proportionOfWidth (0.5000f) - (72 / 2), 80, 72, 56);
-    zeroOutButton->setBounds (0, 350, 150, 50);
-    increment5Button->setBounds (0, 250, 75, 50);
-    increment10Button->setBounds (75, 250, 75, 50);
+    increment1Button->setBounds (140, 388, 180, 180);
+    decrementButton->setBounds (0, 448, 140, 60);
+    numberEditor->setBounds (0, 90, 320, 208);
+    zeroOutButton->setBounds (0, 508, 140, 60);
+    increment5Button->setBounds (0, 388, 70, 60);
+    increment10Button->setBounds (70, 388, 70, 60);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -209,26 +220,26 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="Window" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="300" initialHeight="400">
-  <BACKGROUND backgroundColour="ff3b3434"/>
+                 fixedSize="1" initialWidth="320" initialHeight="568">
+  <BACKGROUND backgroundColour="ff292424"/>
   <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
-              virtualName="" explicitFocusOrder="0" pos="150 250 150 150" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff27be6b"
               buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
-              virtualName="" explicitFocusOrder="0" pos="0 300 150 50" bgColOff="ffffff00"
+              virtualName="" explicitFocusOrder="0" pos="0 448 140 60" bgColOff="ffffff00"
               buttonText="Decrement" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberEditor" id="a92dfa8937177359" memberName="numberEditor"
-              virtualName="" explicitFocusOrder="0" pos="50%c 80 72 56" textcol="ff832f2f"
-              bkgcol="ffffffff" initialText="" multiline="0" retKeyStartsLine="0"
+              virtualName="" explicitFocusOrder="0" pos="0 90 320 208" textcol="ffffffff"
+              bkgcol="ff292424" initialText="" multiline="0" retKeyStartsLine="0"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="0 350 150 50" bgColOff="ffffff00"
+              virtualName="" explicitFocusOrder="0" pos="0 508 140 60" bgColOff="ffffff00"
               buttonText="Zero" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
-              virtualName="" explicitFocusOrder="0" pos="0 250 75 50" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="0 388 70 60" bgColOff="ff27be6b"
               buttonText="+5" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment10Button" id="cb1330da132e9560" memberName="increment10Button"
-              virtualName="" explicitFocusOrder="0" pos="75 250 75 50" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="70 388 70 60" bgColOff="ff27be6b"
               buttonText="+10" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
