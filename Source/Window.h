@@ -80,6 +80,7 @@ private:
     ScopedPointer<TextButton> increment100Button;
     ScopedPointer<TextButton> increment1000Button;
     ScopedPointer<TextEditor> numberFormatEditor;
+    ScopedPointer<TextEditor> statusBarBackdrop;
 
 
     //==============================================================================

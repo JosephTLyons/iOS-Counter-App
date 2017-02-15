@@ -144,13 +144,22 @@ Window::Window ()
     addAndMakeVisible (numberFormatEditor = new TextEditor ("numberFormatEditor"));
     numberFormatEditor->setMultiLine (false);
     numberFormatEditor->setReturnKeyStartsNewLine (false);
-    numberFormatEditor->setReadOnly (false);
+    numberFormatEditor->setReadOnly (true);
     numberFormatEditor->setScrollbarsShown (true);
-    numberFormatEditor->setCaretVisible (true);
+    numberFormatEditor->setCaretVisible (false);
     numberFormatEditor->setPopupMenuEnabled (true);
     numberFormatEditor->setColour (TextEditor::textColourId, Colours::white);
     numberFormatEditor->setColour (TextEditor::backgroundColourId, Colours::black);
     numberFormatEditor->setText (String());
+
+    addAndMakeVisible (statusBarBackdrop = new TextEditor ("statusBarBackdrop"));
+    statusBarBackdrop->setMultiLine (false);
+    statusBarBackdrop->setReturnKeyStartsNewLine (false);
+    statusBarBackdrop->setReadOnly (true);
+    statusBarBackdrop->setScrollbarsShown (false);
+    statusBarBackdrop->setCaretVisible (false);
+    statusBarBackdrop->setPopupMenuEnabled (false);
+    statusBarBackdrop->setText (String());
 
 
     //[UserPreSize]
@@ -211,6 +220,7 @@ Window::~Window()
     increment100Button = nullptr;
     increment1000Button = nullptr;
     numberFormatEditor = nullptr;
+    statusBarBackdrop = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -223,7 +233,7 @@ void Window::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colours::black);
+    g.fillAll (Colour (0xffc3a0a0));
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -248,6 +258,7 @@ void Window::resized()
     increment100Button->setBounds (0, 448, 70, 60);
     increment1000Button->setBounds (70, 448, 70, 60);
     numberFormatEditor->setBounds (0, 364, 320, 24);
+    statusBarBackdrop->setBounds (0, 0, 320, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -353,7 +364,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="320" initialHeight="568">
-  <BACKGROUND backgroundColour="ff000000"/>
+  <BACKGROUND backgroundColour="ffc3a0a0"/>
   <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
               virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff27be6b"
               buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
@@ -402,7 +413,11 @@ BEGIN_JUCER_METADATA
   <TEXTEDITOR name="numberFormatEditor" id="a227d58174688499" memberName="numberFormatEditor"
               virtualName="" explicitFocusOrder="0" pos="0 364 320 24" textcol="ffffffff"
               bkgcol="ff000000" initialText="" multiline="0" retKeyStartsLine="0"
-              readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
+              readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
+  <TEXTEDITOR name="statusBarBackdrop" id="4dd1f707ed9481e2" memberName="statusBarBackdrop"
+              virtualName="" explicitFocusOrder="0" pos="0 0 320 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="1" scrollbars="0"
+              caret="0" popupmenu="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
