@@ -13,79 +13,81 @@ Counter::Counter()
 {
     totalTapCount = 0;
     
-    oneDigit   = 0;
-    twoDigit   = 0;
-    threeDigit = 0;
-    fourDigit  = 0;
-    fiveDigit  = 0;
-    sixDigit   = 0;
+    onesPlaceDotCount             = 0;
+    tensPlaceDotCount             = 0;
+    hundredsPlaceDotCount         = 0;
+    thousandsPlaceDotCount        = 0;
+    tenThousandsPlaceDotCount     = 0;
+    hundredThousandsPlaceDotCount = 0;
 }
 
 void Counter::incrementNumber(const int &input)
 {
     totalTapCount += input;
     
-    calculateDots();
+    populateDotStrings();
 }
 
 void Counter::decrementNumber()
 {
     totalTapCount--;
     
-    calculateDots();
+    populateDotStrings();
 }
 
 void Counter::resetNumberToZero()
 {
     totalTapCount = 0;
     
-    calculateDots();
+    populateDotStrings();
 }
 
-void Counter::calculateDots()
+void Counter::populateDotStrings()
 {
     unsigned long int temporaryCounterNumber = totalTapCount;
     
-    oneDigit   = temporaryCounterNumber % 10;
+    // Calculate count of dots per string
+    onesPlaceDotCount             = temporaryCounterNumber % 10;
     temporaryCounterNumber /= 10;
     
-    twoDigit   = temporaryCounterNumber % 10;
+    tensPlaceDotCount             = temporaryCounterNumber % 10;
     temporaryCounterNumber /= 10;
     
-    threeDigit = temporaryCounterNumber % 10;
+    hundredsPlaceDotCount         = temporaryCounterNumber % 10;
     temporaryCounterNumber /= 10;
     
-    fourDigit  = temporaryCounterNumber % 10;
+    thousandsPlaceDotCount        = temporaryCounterNumber % 10;
     temporaryCounterNumber /= 10;
     
-    fiveDigit  = temporaryCounterNumber % 10;
+    tenThousandsPlaceDotCount     = temporaryCounterNumber % 10;
     temporaryCounterNumber /= 10;
     
-    sixDigit   = temporaryCounterNumber % 10;
+    hundredThousandsPlaceDotCount = temporaryCounterNumber % 10;
     temporaryCounterNumber /= 10;
     
+    // Clear and fill strings
     clearAllString();
     fillAllStringsWithDots();
 }
 
 void Counter::clearAllString()
 {
-    oneDots.clear();
-    twoDots.clear();
-    threeDots.clear();
-    fourDots.clear();
-    fiveDots.clear();
-    sixDots.clear();
+    onesPlaceDotString.clear();
+    tensPlaceDotString.clear();
+    hundredsPlaceDotString.clear();
+    thousandsPlaceDotString.clear();
+    tenThousandsPlaceDotString.clear();
+    hundredThousandsPlaceDotString.clear();
 }
 
 void Counter::fillAllStringsWithDots()
 {
-    fillOneStringWithDots(oneDigit, oneDots);
-    fillOneStringWithDots(twoDigit, twoDots);
-    fillOneStringWithDots(threeDigit, threeDots);
-    fillOneStringWithDots(fourDigit, fourDots);
-    fillOneStringWithDots(fiveDigit, fiveDots);
-    fillOneStringWithDots(sixDigit, sixDots);
+    fillOneStringWithDots(onesPlaceDotCount, onesPlaceDotString);
+    fillOneStringWithDots(tensPlaceDotCount, tensPlaceDotString);
+    fillOneStringWithDots(hundredsPlaceDotCount, hundredsPlaceDotString);
+    fillOneStringWithDots(thousandsPlaceDotCount, thousandsPlaceDotString);
+    fillOneStringWithDots(tenThousandsPlaceDotCount, tenThousandsPlaceDotString);
+    fillOneStringWithDots(hundredThousandsPlaceDotCount, hundredThousandsPlaceDotString);
 }
 
 void Counter::fillOneStringWithDots(const int &dotCount, String &string)
@@ -96,32 +98,32 @@ void Counter::fillOneStringWithDots(const int &dotCount, String &string)
     }
 }
 
-String Counter::returnDigitsString(const int &number)
+String Counter::returnDigitsString(const int &stringNumberToReturn)
 {
-    switch (number)
+    switch (stringNumberToReturn)
     {
         case 1:
-            return oneDots;
+            return onesPlaceDotString;
             break;
          
         case 2:
-            return twoDots;
+            return tensPlaceDotString;
             break;
             
         case 3:
-            return threeDots;
+            return hundredsPlaceDotString;
             break;
             
         case 4:
-            return fourDots;
+            return thousandsPlaceDotString;
             break;
             
         case 5:
-            return fiveDots;
+            return tenThousandsPlaceDotString;
             break;
             
         default:
-            return sixDots;
+            return hundredThousandsPlaceDotString;
             break;
     }
 }

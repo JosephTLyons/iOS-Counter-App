@@ -16,19 +16,19 @@ class Counter
 private:
     unsigned long int totalTapCount;
     
-    int oneDigit;
-    int twoDigit;
-    int threeDigit;
-    int fourDigit;
-    int fiveDigit;
-    int sixDigit;
+    int onesPlaceDotCount;
+    int tensPlaceDotCount;
+    int hundredsPlaceDotCount;
+    int thousandsPlaceDotCount;
+    int tenThousandsPlaceDotCount;
+    int hundredThousandsPlaceDotCount;
     
-    String oneDots;
-    String twoDots;
-    String threeDots;
-    String fourDots;
-    String fiveDots;
-    String sixDots;
+    String onesPlaceDotString;
+    String tensPlaceDotString;
+    String hundredsPlaceDotString;
+    String thousandsPlaceDotString;
+    String tenThousandsPlaceDotString;
+    String hundredThousandsPlaceDotString;
     
     String numberHolderString;
     
@@ -38,7 +38,7 @@ public:
     void incrementNumber(const int &input);
     void decrementNumber();
     void resetNumberToZero();
-    void calculateDots();
+    void populateDotStrings();
     void clearAllString();
     void fillAllStringsWithDots();
     void fillOneStringWithDots(const int &dotCount, String &string);
