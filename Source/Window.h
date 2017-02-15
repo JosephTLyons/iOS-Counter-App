@@ -70,7 +70,7 @@ private:
     ScopedPointer<TextButton> decrementButton;
     ScopedPointer<TextEditor> oneDigitEditor;
     ScopedPointer<TextButton> zeroOutButton;
-    ScopedPointer<TextButton> increment5Button;
+    ScopedPointer<TextButton> increment10000Button;
     ScopedPointer<TextButton> increment10Button;
     ScopedPointer<TextEditor> twoDigitEditor;
     ScopedPointer<TextEditor> threeDigitEditor;
