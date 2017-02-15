@@ -11,7 +11,7 @@
 
 Counter::Counter()
 {
-    totalTapCount = 0;
+    tapCount = 0;
     
     onesPlaceDotCount             = 0;
     tensPlaceDotCount             = 0;
@@ -23,47 +23,47 @@ Counter::Counter()
 
 void Counter::incrementNumber(const int &input)
 {
-    totalTapCount += input;
+    tapCount += input;
     
     populateDotStrings();
 }
 
 void Counter::decrementNumber()
 {
-    totalTapCount--;
+    tapCount--;
     
     populateDotStrings();
 }
 
 void Counter::resetNumberToZero()
 {
-    totalTapCount = 0;
+    tapCount = 0;
     
     populateDotStrings();
 }
 
 void Counter::populateDotStrings()
 {
-    unsigned long int temporaryCounterNumber = totalTapCount;
+    unsigned long int temporaryTapCountNumber = tapCount;
     
     // Calculate count of dots per string
-    onesPlaceDotCount             = temporaryCounterNumber % 10;
-    temporaryCounterNumber /= 10;
+    onesPlaceDotCount             = temporaryTapCountNumber % 10;
+    temporaryTapCountNumber /= 10;
     
-    tensPlaceDotCount             = temporaryCounterNumber % 10;
-    temporaryCounterNumber /= 10;
+    tensPlaceDotCount             = temporaryTapCountNumber % 10;
+    temporaryTapCountNumber /= 10;
     
-    hundredsPlaceDotCount         = temporaryCounterNumber % 10;
-    temporaryCounterNumber /= 10;
+    hundredsPlaceDotCount         = temporaryTapCountNumber % 10;
+    temporaryTapCountNumber /= 10;
     
-    thousandsPlaceDotCount        = temporaryCounterNumber % 10;
-    temporaryCounterNumber /= 10;
+    thousandsPlaceDotCount        = temporaryTapCountNumber % 10;
+    temporaryTapCountNumber /= 10;
     
-    tenThousandsPlaceDotCount     = temporaryCounterNumber % 10;
-    temporaryCounterNumber /= 10;
+    tenThousandsPlaceDotCount     = temporaryTapCountNumber % 10;
+    temporaryTapCountNumber /= 10;
     
-    hundredThousandsPlaceDotCount = temporaryCounterNumber % 10;
-    temporaryCounterNumber /= 10;
+    hundredThousandsPlaceDotCount = temporaryTapCountNumber % 10;
+    temporaryTapCountNumber /= 10;
     
     // Clear and fill strings
     clearAllString();
@@ -130,5 +130,5 @@ String Counter::returnDigitsString(const int &stringNumberToReturn)
 
 unsigned long int Counter::getTotalTapCount()
 {
-    return totalTapCount;
+    return tapCount;
 }

@@ -14,7 +14,7 @@
 class Counter
 {
 private:
-    unsigned long int totalTapCount;
+    unsigned long int tapCount;
     
     int onesPlaceDotCount;
     int tensPlaceDotCount;
