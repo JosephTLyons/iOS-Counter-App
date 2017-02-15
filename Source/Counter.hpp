@@ -39,6 +39,7 @@ public:
     void decrementNumber();
     void resetNumberToZero();
     void populateDotStrings();
+    void calculateNumberOfDotsPerString();
     void clearAllString();
     void fillAllStringsWithDots();
     void fillOneStringWithDots(const int &dotCount, String &string);

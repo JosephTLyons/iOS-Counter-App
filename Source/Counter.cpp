@@ -44,9 +44,15 @@ void Counter::resetNumberToZero()
 
 void Counter::populateDotStrings()
 {
+    calculateNumberOfDotsPerString();
+    clearAllString();
+    fillAllStringsWithDots();
+}
+
+void Counter::calculateNumberOfDotsPerString()
+{
     unsigned long int temporaryTapCountNumber = tapCount;
-    
-    // Calculate count of dots per string
+
     onesPlaceDotCount             = temporaryTapCountNumber % 10;
     temporaryTapCountNumber /= 10;
     
@@ -64,10 +70,6 @@ void Counter::populateDotStrings()
     
     hundredThousandsPlaceDotCount = temporaryTapCountNumber % 10;
     temporaryTapCountNumber /= 10;
-    
-    // Clear and fill strings
-    clearAllString();
-    fillAllStringsWithDots();
 }
 
 void Counter::clearAllString()
