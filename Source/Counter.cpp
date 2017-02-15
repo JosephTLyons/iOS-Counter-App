@@ -90,11 +90,11 @@ void Counter::fillAllStringsWithDots()
     fillOneStringWithDots(hundredThousandsPlaceDotCount, hundredThousandsPlaceDotString);
 }
 
-void Counter::fillOneStringWithDots(const int &dotCount, String &string)
+void Counter::fillOneStringWithDots(const int &dotCount, String &dotString)
 {
     for(int i = 0; i < dotCount; i++)
     {
-        string += ". ";
+        dotString += ". ";
     }
 }
 
