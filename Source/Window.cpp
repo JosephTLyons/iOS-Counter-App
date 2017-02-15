@@ -37,13 +37,13 @@ Window::Window ()
     increment1Button->setButtonText (TRANS("+1"));
     increment1Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment1Button->addListener (this);
-    increment1Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+    increment1Button->setColour (TextButton::buttonColourId, Colour (0xff9027be));
 
     addAndMakeVisible (decrementButton = new TextButton ("decrementButton"));
     decrementButton->setButtonText (TRANS("-1"));
     decrementButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     decrementButton->addListener (this);
-    decrementButton->setColour (TextButton::buttonColourId, Colours::yellow);
+    decrementButton->setColour (TextButton::buttonColourId, Colour (0xff00ffeb));
 
     addAndMakeVisible (oneDigitEditor = new TextEditor ("oneDigitEditor"));
     oneDigitEditor->setMultiLine (true);
@@ -60,19 +60,19 @@ Window::Window ()
     zeroOutButton->setButtonText (TRANS("Zero"));
     zeroOutButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     zeroOutButton->addListener (this);
-    zeroOutButton->setColour (TextButton::buttonColourId, Colours::yellow);
+    zeroOutButton->setColour (TextButton::buttonColourId, Colour (0xff00ffeb));
 
     addAndMakeVisible (increment5Button = new TextButton ("increment5Button"));
     increment5Button->setButtonText (TRANS("+5"));
     increment5Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment5Button->addListener (this);
-    increment5Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+    increment5Button->setColour (TextButton::buttonColourId, Colour (0xff9027be));
 
     addAndMakeVisible (increment10Button = new TextButton ("increment10Button"));
     increment10Button->setButtonText (TRANS("+10"));
     increment10Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment10Button->addListener (this);
-    increment10Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+    increment10Button->setColour (TextButton::buttonColourId, Colour (0xff9027be));
 
     addAndMakeVisible (twoDigitEditor = new TextEditor ("twoDigitEditor"));
     twoDigitEditor->setMultiLine (true);
@@ -133,13 +133,13 @@ Window::Window ()
     increment100Button->setButtonText (TRANS("+100"));
     increment100Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment100Button->addListener (this);
-    increment100Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+    increment100Button->setColour (TextButton::buttonColourId, Colour (0xff9027be));
 
     addAndMakeVisible (increment1000Button = new TextButton ("increment1000Button"));
     increment1000Button->setButtonText (TRANS("+1000"));
     increment1000Button->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     increment1000Button->addListener (this);
-    increment1000Button->setColour (TextButton::buttonColourId, Colour (0xff27be6b));
+    increment1000Button->setColour (TextButton::buttonColourId, Colour (0xff9027be));
 
     addAndMakeVisible (numberFormatEditor = new TextEditor ("numberFormatEditor"));
     numberFormatEditor->setMultiLine (false);
@@ -159,6 +159,7 @@ Window::Window ()
     statusBarBackdrop->setScrollbarsShown (false);
     statusBarBackdrop->setCaretVisible (false);
     statusBarBackdrop->setPopupMenuEnabled (false);
+    statusBarBackdrop->setColour (TextEditor::backgroundColourId, Colours::white);
     statusBarBackdrop->setText (String());
 
 
@@ -366,23 +367,23 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="320" initialHeight="568">
   <BACKGROUND backgroundColour="ffc3a0a0"/>
   <TEXTBUTTON name="increment1Button" id="bd0d25d3a4cfb640" memberName="increment1Button"
-              virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff9027be"
               buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
-              virtualName="" explicitFocusOrder="0" pos="0 508 70 60" bgColOff="ffffff00"
+              virtualName="" explicitFocusOrder="0" pos="0 508 70 60" bgColOff="ff00ffeb"
               buttonText="-1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="oneDigitEditor" id="a92dfa8937177359" memberName="oneDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="160 259 160 129" textcol="ffe90808"
               bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="70 508 70 60" bgColOff="ffffff00"
+              virtualName="" explicitFocusOrder="0" pos="70 508 70 60" bgColOff="ff00ffeb"
               buttonText="Zero" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
-              virtualName="" explicitFocusOrder="0" pos="0 388 70 60" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="0 388 70 60" bgColOff="ff9027be"
               buttonText="+5" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment10Button" id="cb1330da132e9560" memberName="increment10Button"
-              virtualName="" explicitFocusOrder="0" pos="70 388 70 60" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="70 388 70 60" bgColOff="ff9027be"
               buttonText="+10" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="twoDigitEditor" id="307ebba97abe27fc" memberName="twoDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="0 259 160 129" textcol="ffffdd5b"
@@ -405,19 +406,19 @@ BEGIN_JUCER_METADATA
               bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="increment100Button" id="6b79c890d1b60cf8" memberName="increment100Button"
-              virtualName="" explicitFocusOrder="0" pos="0 448 70 60" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="0 448 70 60" bgColOff="ff9027be"
               buttonText="+100" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment1000Button" id="68df2984869f2126" memberName="increment1000Button"
-              virtualName="" explicitFocusOrder="0" pos="70 448 70 60" bgColOff="ff27be6b"
+              virtualName="" explicitFocusOrder="0" pos="70 448 70 60" bgColOff="ff9027be"
               buttonText="+1000" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberFormatEditor" id="a227d58174688499" memberName="numberFormatEditor"
               virtualName="" explicitFocusOrder="0" pos="0 364 320 24" textcol="ffffffff"
               bkgcol="ff000000" initialText="" multiline="0" retKeyStartsLine="0"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="statusBarBackdrop" id="4dd1f707ed9481e2" memberName="statusBarBackdrop"
-              virtualName="" explicitFocusOrder="0" pos="0 0 320 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="1" scrollbars="0"
-              caret="0" popupmenu="0"/>
+              virtualName="" explicitFocusOrder="0" pos="0 0 320 24" bkgcol="ffffffff"
+              initialText="" multiline="0" retKeyStartsLine="0" readonly="1"
+              scrollbars="0" caret="0" popupmenu="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
