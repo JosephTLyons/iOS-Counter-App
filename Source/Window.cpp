@@ -246,18 +246,18 @@ void Window::resized()
     //[/UserPreResize]
 
     increment1Button->setBounds (140, 388, 180, 180);
-    decrementButton->setBounds (0, 508, 70, 60);
+    decrementButton->setBounds (70, 508, 70, 60);
     oneDigitEditor->setBounds (160, 259, 160, 129);
-    zeroOutButton->setBounds (70, 508, 70, 60);
-    increment5Button->setBounds (0, 388, 70, 60);
-    increment10Button->setBounds (70, 388, 70, 60);
+    zeroOutButton->setBounds (0, 508, 70, 60);
+    increment5Button->setBounds (70, 448, 70, 60);
+    increment10Button->setBounds (0, 448, 70, 60);
     twoDigitEditor->setBounds (0, 259, 160, 129);
     threeDigitEditor->setBounds (160, 130, 160, 129);
     fourDigitEditor->setBounds (0, 130, 160, 129);
     fiveDigitEditor->setBounds (160, 1, 160, 129);
     sixDigitEditor->setBounds (0, 1, 160, 129);
-    increment100Button->setBounds (0, 448, 70, 60);
-    increment1000Button->setBounds (70, 448, 70, 60);
+    increment100Button->setBounds (70, 388, 70, 60);
+    increment1000Button->setBounds (0, 388, 70, 60);
     numberFormatEditor->setBounds (0, 364, 320, 24);
     statusBarBackdrop->setBounds (0, 0, 320, 24);
     //[UserResized] Add your own custom resize handling here..
@@ -370,20 +370,20 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="140 388 180 180" bgColOff="ff9027be"
               buttonText="+1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="decrementButton" id="24e1ee09b69994c4" memberName="decrementButton"
-              virtualName="" explicitFocusOrder="0" pos="0 508 70 60" bgColOff="ff00ffeb"
+              virtualName="" explicitFocusOrder="0" pos="70 508 70 60" bgColOff="ff00ffeb"
               buttonText="-1" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="oneDigitEditor" id="a92dfa8937177359" memberName="oneDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="160 259 160 129" textcol="ffe90808"
               bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="zeroOutButton" id="4813e0faebc7e1d" memberName="zeroOutButton"
-              virtualName="" explicitFocusOrder="0" pos="70 508 70 60" bgColOff="ff00ffeb"
+              virtualName="" explicitFocusOrder="0" pos="0 508 70 60" bgColOff="ff00ffeb"
               buttonText="Zero" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment5Button" id="91e4ed1b33d9dd11" memberName="increment5Button"
-              virtualName="" explicitFocusOrder="0" pos="0 388 70 60" bgColOff="ff9027be"
+              virtualName="" explicitFocusOrder="0" pos="70 448 70 60" bgColOff="ff9027be"
               buttonText="+5" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment10Button" id="cb1330da132e9560" memberName="increment10Button"
-              virtualName="" explicitFocusOrder="0" pos="70 388 70 60" bgColOff="ff9027be"
+              virtualName="" explicitFocusOrder="0" pos="0 448 70 60" bgColOff="ff9027be"
               buttonText="+10" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="twoDigitEditor" id="307ebba97abe27fc" memberName="twoDigitEditor"
               virtualName="" explicitFocusOrder="0" pos="0 259 160 129" textcol="ffffdd5b"
@@ -406,10 +406,10 @@ BEGIN_JUCER_METADATA
               bkgcol="ff000000" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="increment100Button" id="6b79c890d1b60cf8" memberName="increment100Button"
-              virtualName="" explicitFocusOrder="0" pos="0 448 70 60" bgColOff="ff9027be"
+              virtualName="" explicitFocusOrder="0" pos="70 388 70 60" bgColOff="ff9027be"
               buttonText="+100" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="increment1000Button" id="68df2984869f2126" memberName="increment1000Button"
-              virtualName="" explicitFocusOrder="0" pos="70 448 70 60" bgColOff="ff9027be"
+              virtualName="" explicitFocusOrder="0" pos="0 388 70 60" bgColOff="ff9027be"
               buttonText="+1000" connectedEdges="3" needsCallback="1" radioGroupId="0"/>
   <TEXTEDITOR name="numberFormatEditor" id="a227d58174688499" memberName="numberFormatEditor"
               virtualName="" explicitFocusOrder="0" pos="0 364 320 24" textcol="ffffffff"
