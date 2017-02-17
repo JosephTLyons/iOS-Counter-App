@@ -30,8 +30,6 @@ private:
     String tenThousandsPlaceDotString;
     String hundredThousandsPlaceDotString;
     
-    String numberHolderString;
-    
 public:
     Counter();
     
@@ -40,7 +38,7 @@ public:
     void resetNumberToZero();
     void populateDotStrings();
     void calculateNumberOfDotsPerString();
-    void clearAllString();
+    void clearAllStrings();
     void fillAllStringsWithDots();
     void fillOneStringWithDots(const int &dotCount, String &string);
     

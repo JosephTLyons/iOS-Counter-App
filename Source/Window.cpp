@@ -331,8 +331,11 @@ void Window::buttonClicked (Button* buttonThatWasClicked)
     }
 
     //[UserbuttonClicked_Post]
+    
+    // Always re-populate the strings no matter what button is clicked
+    counterObject.populateDotStrings();
 
-    // Display updated dot count
+    // Display updated dot count to textEditor fields
     oneDigitEditor->setText(counterObject.returnDigitsString(1));
     twoDigitEditor->setText(counterObject.returnDigitsString(2));
     threeDigitEditor->setText(counterObject.returnDigitsString(3));

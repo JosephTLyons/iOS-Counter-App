@@ -24,28 +24,22 @@ Counter::Counter()
 void Counter::incrementNumber(const int &input)
 {
     tapCount += input;
-    
-    populateDotStrings();
 }
 
 void Counter::decrementNumber()
 {
     tapCount--;
-    
-    populateDotStrings();
 }
 
 void Counter::resetNumberToZero()
 {
     tapCount = 0;
-    
-    populateDotStrings();
 }
 
 void Counter::populateDotStrings()
 {
     calculateNumberOfDotsPerString();
-    clearAllString();
+    clearAllStrings();
     fillAllStringsWithDots();
 }
 
@@ -72,7 +66,7 @@ void Counter::calculateNumberOfDotsPerString()
     temporaryTapCountNumber /= 10;
 }
 
-void Counter::clearAllString()
+void Counter::clearAllStrings()
 {
     onesPlaceDotString.clear();
     tensPlaceDotString.clear();
